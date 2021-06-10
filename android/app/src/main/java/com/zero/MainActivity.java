@@ -1,6 +1,7 @@
 package com.zero;
 import com.facebook.react.ReactActivity;
 
+
 ///////////// splash screen ///////////
 import android.os.Bundle;
 

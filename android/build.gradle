@@ -1,7 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext {
+    ext {    
+
+           googlePlayServicesVersion = "+" // default: "+"
+    firebaseMessagingVersion = "21.1.0" // default: "21.1.0"
+    supportLibVersion = "23.1.1" // default: 23.1.1
+
         buildToolsVersion = "29.0.3"
         minSdkVersion = 21
         compileSdkVersion = 29

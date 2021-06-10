@@ -18,6 +18,8 @@ target 'zero' do
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+  pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
+
   target 'zeroTests' do
     inherit! :complete
     # Pods for testing
