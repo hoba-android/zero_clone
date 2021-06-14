@@ -71,9 +71,9 @@ export default Fasts;
 const styles = StyleSheet.create({
   typeButton: {
     width: 280,
-    height: 150,
+    height: 120,
     borderRadius: 20,
-    padding: 20,
+    padding: 15,
     marginBottom: 15,
   },
   line1: {

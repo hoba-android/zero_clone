@@ -11,7 +11,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';
 import Icon3 from 'react-native-vector-icons/Entypo';
 import Icon4 from 'react-native-vector-icons/Entypo';
-import Icon5 from 'react-native-vector-icons/Ionicons';
 
 import FastDetais13 from '../screens/FastDetais13';
 import FastDetais16 from '../screens/FastDetais16';
@@ -23,10 +22,37 @@ import History from '../screens/History';
 import Learn from '../screens/Learn';
 import Timer from '../screens/Timer';
 
+import Login from '../screens/Login';
+import SignUp from '../screens/SignUp';
+
 const Stack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
 
-const Router = () => {
+const loginStack = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name={'Log In'}
+          component={Login}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name={'Tabs'}
+          component={HomeTabNavigator}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const FastsStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -86,60 +112,58 @@ const Router = () => {
 
 const HomeTabNavigator = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        tabBarPosition={'bottom'}
-        tabBarOptions={{
-          activeTintColor: '#ec7068',
-          inactiveTintColor: 'black',
-          showIcon: true,
-        }}>
-        <Tab.Screen
-          name="Timer"
-          component={Timer}
-          options={{
-            tabBarLabel: 'Timer',
-            tabBarIcon: ({color, size}) => (
-              <Icon name="timer" size={24} color="grey" />
-            ),
-          }}
-        />
+    <Tab.Navigator
+      tabBarPosition={'bottom'}
+      tabBarOptions={{
+        activeTintColor: '#ec7068',
+        inactiveTintColor: 'black',
+        showIcon: true,
+      }}>
+      <Tab.Screen
+        name="Timer"
+        component={Timer}
+        options={{
+          tabBarLabel: 'Timer',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="timer" size={24} color="grey" />
+          ),
+        }}
+      />
 
-        <Tab.Screen
-          name="Fasts"
-          component={Router}
-          options={{
-            tabBarLabel: 'Fasts',
-            tabBarIcon: ({color, size}) => (
-              <Icon2 name="file-alt" size={24} color="grey" />
-            ),
-          }}
-        />
+      <Tab.Screen
+        name="Fasts"
+        component={FastsStack}
+        options={{
+          tabBarLabel: 'Fasts',
+          tabBarIcon: ({color, size}) => (
+            <Icon2 name="file-alt" size={24} color="grey" />
+          ),
+        }}
+      />
 
-        <Tab.Screen
-          name="History"
-          component={History}
-          options={{
-            tabBarLabel: 'History',
-            tabBarIcon: ({color, size}) => (
-              <Icon3 name="bar-graph" size={24} color={'grey'} />
-            ),
-          }}
-        />
+      <Tab.Screen
+        name="History"
+        component={History}
+        options={{
+          tabBarLabel: 'History',
+          tabBarIcon: ({color, size}) => (
+            <Icon3 name="bar-graph" size={24} color={'grey'} />
+          ),
+        }}
+      />
 
-        <Tab.Screen
-          name="Learn"
-          component={Learn}
-          options={{
-            tabBarLabel: 'Learn',
-            tabBarIcon: ({color, size}) => (
-              <Icon4 name="open-book" size={24} color={'grey'} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+      <Tab.Screen
+        name="Learn"
+        component={Learn}
+        options={{
+          tabBarLabel: 'Learn',
+          tabBarIcon: ({color, size}) => (
+            <Icon4 name="open-book" size={24} color={'grey'} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 
-export default HomeTabNavigator;
+export default loginStack;

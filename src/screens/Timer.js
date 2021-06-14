@@ -6,6 +6,7 @@ import {
   View,
   Modal,
   ScrollView,
+  Button,
 } from 'react-native';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import BackgroundTimer from 'react-native-background-timer';
@@ -15,6 +16,12 @@ import {
   hadleCancel,
   hadleScheduledNotification,
 } from '../notification.android';
+
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
 
 import Icon from 'react-native-vector-icons/Entypo';
 import DatePicker from 'react-native-date-picker';
@@ -27,7 +34,7 @@ const typeText = {
   20: '20 : 4',
 };
 
-const Timer = () => {
+const Timer = ({navigation}) => {
   const [date, setDate] = useState(new Date());
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -83,6 +90,16 @@ const Timer = () => {
 
   // BackgroundTimer.stopBackgroundTimer();
 
+  const googleSignOut = async () => {
+    try {
+      await GoogleSignin.revokeAccess();
+      await GoogleSignin.signOut();
+      navigation.navigate('Log In');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <ScrollView>
       <View style={styles.main}>
@@ -105,6 +122,7 @@ const Timer = () => {
           <Text style={{fontWeight: 'bold', fontSize: 12}}>
             {typeText[fastDuration]} TRF
           </Text>
+          {/* <Button title="sing out" onPress={googleSignOut} /> */}
         </View>
         <View
           style={{
@@ -186,7 +204,7 @@ const Timer = () => {
 
         <TouchableOpacity
           onPress={() =>
-            showNotification('Bravo', 'You completed your fasting')
+            hadleScheduledNotification('Bravo', 'You completed your fasting')
           }>
           <View style={styles.endView}>
             <Text style={{fontSize: 16, fontWeight: 'bold', color: '#F7803C'}}>
