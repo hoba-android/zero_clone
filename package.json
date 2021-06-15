@@ -18,6 +18,8 @@
     "@react-navigation/material-top-tabs": "^5.3.15",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.5",
+    "axios": "^0.21.1",
+    "install": "^0.13.0",
     "moment": "^2.29.1",
     "native-base": "^2.15.2",
     "react": "17.0.1",
@@ -38,7 +40,8 @@
     "react-native-splash-screen": "^3.2.0",
     "react-native-svg": "^12.1.1",
     "react-native-tab-view": "^2.16.0",
-    "react-native-vector-icons": "^7.1.0"
+    "react-native-vector-icons": "^7.1.0",
+    "react-native-video": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",

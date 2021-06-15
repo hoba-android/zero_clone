@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';
 import Icon3 from 'react-native-vector-icons/Entypo';
 import Icon4 from 'react-native-vector-icons/Entypo';
+import Icon5 from 'react-native-vector-icons/Entypo';
 
 import FastDetais13 from '../screens/FastDetais13';
 import FastDetais16 from '../screens/FastDetais16';
@@ -21,6 +22,7 @@ import Fasts from '../screens/Fasts';
 import History from '../screens/History';
 import Learn from '../screens/Learn';
 import Timer from '../screens/Timer';
+import Gallery from '../screens/Gallery';
 
 import Login from '../screens/Login';
 import SignUp from '../screens/SignUp';
@@ -33,16 +35,15 @@ const loginStack = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name={'Log In'}
-          component={Login}
+          name={'Tabs'}
+          component={HomeTabNavigator}
           options={{
             headerShown: false,
           }}
         />
-
         <Stack.Screen
-          name={'Tabs'}
-          component={HomeTabNavigator}
+          name={'Log In'}
+          component={Login}
           options={{
             headerShown: false,
           }}
@@ -118,6 +119,10 @@ const HomeTabNavigator = () => {
         activeTintColor: '#ec7068',
         inactiveTintColor: 'black',
         showIcon: true,
+        labelStyle: {
+          fontSize: 12,
+          textTransform: 'none',
+        },
       }}>
       <Tab.Screen
         name="Timer"
@@ -125,7 +130,7 @@ const HomeTabNavigator = () => {
         options={{
           tabBarLabel: 'Timer',
           tabBarIcon: ({color, size}) => (
-            <Icon name="timer" size={24} color="grey" />
+            <Icon name="timer" size={20} color="grey" />
           ),
         }}
       />
@@ -136,7 +141,7 @@ const HomeTabNavigator = () => {
         options={{
           tabBarLabel: 'Fasts',
           tabBarIcon: ({color, size}) => (
-            <Icon2 name="file-alt" size={24} color="grey" />
+            <Icon2 name="file-alt" size={20} color="grey" />
           ),
         }}
       />
@@ -146,8 +151,9 @@ const HomeTabNavigator = () => {
         component={History}
         options={{
           tabBarLabel: 'History',
+
           tabBarIcon: ({color, size}) => (
-            <Icon3 name="bar-graph" size={24} color={'grey'} />
+            <Icon3 name="bar-graph" size={20} color={'grey'} />
           ),
         }}
       />
@@ -158,7 +164,17 @@ const HomeTabNavigator = () => {
         options={{
           tabBarLabel: 'Learn',
           tabBarIcon: ({color, size}) => (
-            <Icon4 name="open-book" size={24} color={'grey'} />
+            <Icon4 name="open-book" size={20} color={'grey'} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Gallery"
+        component={Gallery}
+        options={{
+          tabBarLabel: 'Gallery',
+          tabBarIcon: ({color, size}) => (
+            <Icon5 name="image" size={20} color={'grey'} />
           ),
         }}
       />
